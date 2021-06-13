@@ -1,4 +1,4 @@
-##The Organization
+#The Organization
 
 Starting from its year of founding, NAME, with its cutting-edge technology for tea production, launched the Taiwanese bubble tea business locally.
 Through the constructing of the NAME trademark and our continuing extensive costumer support, the first store in this city has expanded into our chain of over 70 branches.
@@ -6,7 +6,7 @@ This expansion, with our goal of spreading the footsteps of traditional bubble t
 We guarantee to provide customers the best of quality and service, strictly only using ingredients shipped directly from Taiwan, all of which approved by FDA, to brew you the freshest and most authentic Taiwanese taste in every sip.
 We hereby cordially invite you to take delight in the experience with us.
 
-##The App
+#The App
 
 In times of lockdown it is important to make available services which can be used safely.
 With this app we plan to realise a safer environment for our customers who want to order.
@@ -17,9 +17,11 @@ That list should offer an option to rate the order of others and sort the orders
 
 As we started to open several bubble tea stores per city and are working together with other companies, the app should also 
 
-###Title
-###Domain Name
-###Information Management Tasks
+##Title
+
+##Domain Name
+
+##Information Management Tasks
 
 1. Organize Drinks (liquids)
 	1) Retrieve Drink	-	Present a list of all liquids available as drink
