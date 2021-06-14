@@ -20,6 +20,8 @@ BubbleBoba
 
 ## Domain Name
 
+bubblebobas.shop
+
 ## Information Management Tasks
 
 1. Organize Drinks (liquids)
