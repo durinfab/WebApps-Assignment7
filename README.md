@@ -15,8 +15,6 @@ The app should provide a medium for customers to easily place an order without s
 To underline the social aspect, even in times where social distancing is important, there should be a feature where everyones order should be listed.
 That list should offer an option to rate the order of others and sort the orders by rating.
 
-As we started to open several bubble tea stores per city and are working together with other companies, the app should also 
-
 ## Title
 BubbleBoba
 
