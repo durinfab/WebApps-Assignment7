@@ -24,20 +24,20 @@ bubblebobas.shop
 
 ## Information Management Tasks
 
-1. Organize Drinks (liquids)
+1. Organize Drinks (liquids / can only be used by employees)
 	1) Retrieve Drink	-	Present a list of all liquids available as drink
 	2) Create Drink		-	Present a form to create a new drink
 	3) Update Drink		-	Present a form to update an existing drink
 	4) Delete Drink		-	Present a form to choose a drink to delete
 
 
-2. Organize Bobas (topping)
+2. Organize Bobas (topping / can only be used by employees)
 	1) Retrieve Bobas	-	Present a list of all toppings available as bobas
 	2) Create Bobas		-	Present a form to create a new type of bobas
 	3) Update Bobas		-	Present a form to update an existing type of bobas
 	4) Delete Bobas		-	Present a form to choose a type of bobas to delete
   
-3. Organize Boba Teas (liquid + topping)
+3. Organize Boba Teas (liquid + topping / can be used by employees and customers)
 	1) Create Custom Boba Teas							- 	Choose from drinks and bobas to create custom order
 	2) Retrieve Boba Tea Orders							-	Present a list of the all orders placed
 	3) Display Boba Tea Orders with different sorting	-	Present a list of the all orders placed and offer different keyword to sort by (rating, most recent)
