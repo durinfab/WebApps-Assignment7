@@ -22,6 +22,10 @@ BubbleBoba
 
 bubblebobas.shop
 
+## Presentation
+
+https://docs.google.com/presentation/d/1yOjX8_iQwDYHuaC7BzZaFT3Tb4UBfFYlX49FZ4NslH0/edit?usp=sharing
+
 ## Information Management Tasks
 
 1. Organize Drinks (liquids / can only be used by employees)
