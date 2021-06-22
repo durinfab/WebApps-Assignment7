@@ -42,7 +42,6 @@ https://docs.google.com/presentation/d/1yOjX8_iQwDYHuaC7BzZaFT3Tb4UBfFYlX49FZ4Ns
 	4) Delete Bobas		-	Present a form to choose a type of bobas to delete
   
 3. Organize Boba Teas (liquid + topping / can be used by employees and customers)
-	1) Create Custom Boba Teas							- 	Choose from drinks and bobas to create custom order
-	2) Retrieve Boba Tea Orders							-	Present a list of the all orders placed
-	3) Display Boba Tea Orders with different sorting	-	Present a list of the all orders placed and offer different keyword to sort by (rating, most recent)
-	4) Rate Boba Tea									-	Present a list of the all orders placed
+	1) Create Custom Boba Teas					- 	Choose from drinks and bobas to create custom order
+	2) Display and display Boba Tea Orders with different sorting	-	Present a list of the all orders placed and offer different keyword to sort by (rating, most recent)
+	3) Rate Boba Tea						-	Present a list of the all orders placed
