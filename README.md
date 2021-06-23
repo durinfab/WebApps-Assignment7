@@ -85,7 +85,7 @@ https://docs.google.com/presentation/d/1yOjX8_iQwDYHuaC7BzZaFT3Tb4UBfFYlX49FZ4Ns
 	4) date (mandatory, constraint)
 	5) rating (optional after creation, constraint).				-	Updates itself after each rating and displays the average of all ratings as a value with one decimal place, range between 0 and 5
 	
-	One Boba Tea contains one drink and one variety of Boba 
+	One Boba Tea contains one drink and one variety of Boba .Adjustments are conceivable.
 
 More information:
 - The functionarea for the employes should be protected by a univeral password
