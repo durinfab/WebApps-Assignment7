@@ -1,3 +1,4 @@
+
 # The Organization
 
 Starting from its year of founding, BubbleBoba, with its cutting-edge technology for tea production, launched the Taiwanese bubble tea business locally.
@@ -89,4 +90,8 @@ https://docs.google.com/presentation/d/1yOjX8_iQwDYHuaC7BzZaFT3Tb4UBfFYlX49FZ4Ns
 More information:
 - The functionarea for the employes should be protected by a univeral password
 - As disign colors are yellow, orange, red preferred
+
+![Domain Model](https://user-images.githubusercontent.com/44813766/123148117-235a4700-d460-11eb-9da2-921ec1312e0f.png)
+
+![Design Model](https://user-images.githubusercontent.com/44813766/123148210-3e2cbb80-d460-11eb-9e98-066917a38f7d.png)
 
