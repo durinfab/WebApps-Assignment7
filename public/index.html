@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Minimal Web App with JS and Firebase</title>
+  <meta name="description" content="A minimal effort web app with plain JS + Firebase."/>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <script src="js/c/initialize.js"></script>
+  <script src="js/m/Drink.js"></script>
+
+  <script>
+      window.addEventListener("load", function () {
+      const clearButton = document.getElementById("clearData"),
+          generateTestDataButtons = document.querySelectorAll("button.generateTestData");
+      // Set event handlers for the buttons "clearData" and "generateTestData"
+      clearButton.addEventListener("click", Drink.clearData);
+      for (const btn of generateTestDataButtons) {
+          btn.addEventListener("click", Drink.generateTestData);
+      }
+    });
+  </script>
+</head>
+<body>
+<header>
+  <div class="wrapper clearfix">
+    <div class="title">
+      <figure>
+        <img alt="" title="Icon"
+             src="ms-icon.png" /></figure>
+      <h1>BubbleBoba</h1>
+      <h2>Mange Drinks</h2>
+      <h3></h3>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="indexBobaTea.html">BTea</a></li>
+        <li><a href="index.html">Drink</a></li>
+        <li><a href="indexBoba.html">Boba</a></li>
+        <br/><br/><br/><br/>
+        <li><a href="createDrink.html">C</a></li>
+        <li><a href="retrieveAndListAllDrinks.html">R</a></li>
+        <li><a href="updateDrink.html">U</a></li>
+        <li><a href="deleteDrink.html">D</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrapper clearfix">
+    <p></p>
+    <div class="two-col-menu">
+      <menu class="crud">
+        <li><a href="createDrink.html">Create</a> a new drink</li>
+        <li><a href="retrieveAndListAllDrinks.html">Retrieve</a> and list all drinks</li>
+        <li><a href="updateDrink.html">Update</a> a drink</li>
+        <li><a href="deleteDrink.html">Delete</a> a drink</li>
+      </menu>
+    </div>
+    <p>For testing the app, you may first want to
+      <button type="button" class="generateTestData">Generate test data</button> or
+      <button type="button" id="clearData">Clear database</button>
+    </p>
+  </div>
+</main>
+<footer>
+  <h5 style="text-align: center">Created by Manuel Bohg</h5>
+  <br/>
+</footer>
+</body>
+</html>

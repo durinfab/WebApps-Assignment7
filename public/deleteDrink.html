@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Minimal Web App with JS and Firebase: Delete</title>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <script src="js/c/initialize.js"></script>
+  <script src="js/m/Drink.js"></script>
+  <script src="js/v/deleteDrink.js"></script>
+  <script>
+    window.addEventListener("load", pl.v.deleteDrink.setupUserInterface);
+  </script>
+</head>
+<body>
+<header>
+  <div class="wrapper clearfix">
+    <div class="title">
+      <h1>Delete a drink</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="indexBobaTea.html">BTea</a></li>
+        <li><a href="index.html">Drink</a></li>
+        <li><a href="indexBoba.html">Boba</a></li>
+        <br/><br/><br/><br/>
+        <li><a href="createDrink.html">C</a></li>
+        <li><a href="retrieveAndListAllDrinks.html">R</a></li>
+        <li><a href="updateDrink.html">U</a></li>
+        <li><a href="deleteDrink.html">D</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrapper clearfix">
+    <form id="Drink">
+      <div>
+        <label>Select drink:
+          <select name="selectDrink">
+            <option value=""> ---</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <button name="commit" type="button">Delete</button>
+      </div>
+    </form>
+    <a href="index.html">Back to main menu</a>
+  </div>
+</main>
+<footer>
+  <h5 style="text-align: center">Created by Manuel Bohg</h5>
+  <br/>
+</footer>
+</body>
+</html>
