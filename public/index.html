@@ -6,11 +6,18 @@
   <meta name="description" content="A minimal effort web app with plain JS + Firebase."/>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="css/normalize.css"/>
   <link rel="stylesheet" href="css/main.css"/>
+
   <script src="js/c/initialize.js"></script>
   <script src="js/m/Drink.js"></script>
+  <script src="js/v/authenticateUser.js"></script>
+  <script>
+      window.addEventListener("load", pl.v.authenticateUser.setupUiByUserStatus);
+  </script>
 
   <script>
       window.addEventListener("load", function () {
@@ -41,12 +48,24 @@
         <li><a href="index.html">Drink</a></li>
         <li><a href="indexBoba.html">Boba</a></li>
         <br/><br/><br/><br/>
-        <li><a href="createDrink.html">C</a></li>
-        <li><a href="retrieveAndListAllDrinks.html">R</a></li>
-        <li><a href="updateDrink.html">U</a></li>
-        <li><a href="deleteDrink.html">D</a></li>
+        <li role="menuitem">
+          <a href="createDrink.html" class="disabled">C</a>
+        </li>
+        <li role="menuitem">
+          <a href="retrieveAndListAllDrinks.html">R</a>
+        </li>
+        <li role="menuitem">
+          <a href="updateDrink.html" class="disabled">U</a>
+        </li>
+        <li role="menuitem">
+          <a href="deleteDrink.html" class="disabled">D</a>
+        </li>
       </ul>
     </nav>
+  </div>
+  <div id="login-management">
+    <small hidden="hidden"><a href="authenticateUser.html">Sign in or Sign up</a> for using the disabled operations</small>
+    <small hidden="hidden"><button type="button">Sign out</button></small>
   </div>
 </header>
 <main>
@@ -54,15 +73,25 @@
     <p></p>
     <div class="two-col-menu">
       <menu class="crud">
-        <li><a href="createDrink.html">Create</a> a new drink</li>
-        <li><a href="retrieveAndListAllDrinks.html">Retrieve</a> and list all drinks</li>
-        <li><a href="updateDrink.html">Update</a> a drink</li>
-        <li><a href="deleteDrink.html">Delete</a> a drink</li>
+        <ul role="menubar">
+          <li role="menuitem">
+            <a href="createDrink.html" class="disabled">Create</a> a new drink
+          </li>
+          <li role="menuitem">
+            <a href="retrieveAndListAllDrinks.html">Retrieve</a> and list all drinks
+          </li>
+          <li role="menuitem">
+            <a href="updateDrink.html" class="disabled">Update</a> a drink
+          </li>
+          <li role="menuitem">
+            <a href="deleteDrink.html" class="disabled">Delete</a> a drink
+          </li>
+        </ul>
       </menu>
     </div>
     <p>For testing the app, you may first want to
-      <button type="button" class="generateTestData">Generate test data</button> or
-      <button type="button" id="clearData">Clear database</button>
+      <button type="button" class="generateTestData" disabled="disabled">Generate test data</button> or
+      <button type="button" id="clearData" disabled="disabled">Clear database</button>
     </p>
   </div>
 </main>

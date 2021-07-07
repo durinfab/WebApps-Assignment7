@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Minimal Web App with Plain JS and Firebase (with authentication): Authenticate</title>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <script src="js/c/initialize.js"></script>
+  <script src="js/v/authenticateUser.js"></script>
+  <script>
+    //evaluate user authentication status
+    auth.onAuthStateChanged( function (user) {
+      if (!user) { // if user status is unknown
+        // sign in user as 'anonymous'
+        auth.signInAnonymously();
+      }
+    });
+    window.addEventListener("load", pl.v.authenticateUser.setupSignInAndSignUp);
+  </script>
+</head>
+<body>
+<header>
+    <div class="wrapper clearfix">
+        <div class="title">
+            <h1>User authentification</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="indexBobaTea.html">BTea</a></li>
+                <li><a href="index.html">Drink</a></li>
+                <li><a href="indexBoba.html">Boba</a></li>
+                <br/><br/><br/><br/>
+                <li role="menuitem">
+                    <a href="createDrink.html" class="disabled">C</a>
+                </li>
+                <li role="menuitem">
+                    <a href="retrieveAndListAllDrinks.html">R</a>
+                </li>
+                <li role="menuitem">
+                    <a href="updateDrink.html" class="disabled">U</a>
+                </li>
+                <li role="menuitem">
+                    <a href="deleteDrink.html" class="disabled">D</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="login-management"><br/></div>
+    <div id="error" hidden="hidden"><small></small></div>
+</header>
+<main>
+ <div class="wrapper clearfix"><form id="User">
+  <div>
+    <label>Email: <input name="email" type="email"/></label>
+  </div>
+  <div>
+    <label>Password: <input name="password" type="password" placeholder="6+ characters"/></label>
+  </div>
+     <br/>
+  <div>
+    <button type="button" name="signin">Sign in</button>
+    <button type="button" name="signup">Sign up</button>
+  </div>
+ </form>
+     <p>
+         <b>Sign in</b> if you have an account, or <b>sign up</b> to create an account
+     </p>
+     <a href="index.html">« Back to main menu</a>
+ </div>
+</main>
+<footer>
+    <h5 style="text-align: center">Created by Manuel Bohg</h5>
+    <br/>
+</footer>
+</body>
+</html>

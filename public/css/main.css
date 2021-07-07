@@ -1,5 +1,25 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 
+/* Athentification */
+a.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: default;
+}
+div#login-management {
+    text-align: right;
+    background: orange;
+    border: 1px solid orange;
+}
+
+#error {
+    color: #ff3300;
+    text-align: left;
+    background: #fff4f4;
+    border: 1px solid #ff7653;
+}
+
+
 html {
     color: #222;
     font-size: 1em;
@@ -66,11 +86,10 @@ body {
 /*    --dark-bg-color: darkgoldenrod;  /*  #e44d26 */
     --light-bg-color: orangered;
     --dark-bg-color: orange;
-
 }
 
 header {
-    border-bottom: 20px solid var(--dark-bg-color);
+
 }
 
 main{
@@ -195,6 +214,8 @@ form > div.widget > div {
 }
 form > div.widget > div,
   form > div > label > input[type="text"],
+  form > div > label > input[type="email"],
+  form > div > label > input[type="password"],
   form > div > label > textarea,
   form > div > label > input[type="checkbox"],
   form > div > label > select,
