@@ -10,13 +10,10 @@
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="css/normalize.css"/>
   <link rel="stylesheet" href="css/main.css"/>
-  <script src="js/c/initialize.js"></script>
-  <script src="js/m/Drink.js"></script>
-  <script src="js/v/createDrink.js"></script>
-  <script src="js/v/authenticateUser.js"></script>
-  <script>
-      window.addEventListener("load", pl.v.authenticateUser.setupUiByUserStatus);
-    window.addEventListener("load", pl.v.createDrink.setupUserInterface);
+  <script src="js/v/createDrink.mjs" type="module"></script>
+  <script type="module">
+      import { setupUiByUserStatus } from "./js/v/authenticateUser.mjs";
+      setupUiByUserStatus();
   </script>
 </head>
 <body>
@@ -32,16 +29,16 @@
         <li><a href="indexBoba.html">Boba</a></li>
         <br/><br/><br/><br/>
         <li role="menuitem">
-          <a href="createDrink.html" class="disabled">C</a>
+          <a href="createDrink.html">C</a>
         </li>
         <li role="menuitem">
           <a href="retrieveAndListAllDrinks.html">R</a>
         </li>
         <li role="menuitem">
-          <a href="updateDrink.html" class="disabled">U</a>
+          <a href="updateDrink.html">U</a>
         </li>
         <li role="menuitem">
-          <a href="deleteDrink.html" class="disabled">D</a>
+          <a href="deleteDrink.html">D</a>
         </li>
       </ul>
     </nav>
@@ -58,7 +55,8 @@
       <div><label>Name: <input name="title" type="text"/></label></div>
       <div><label>Description: <input name="description" type="text"/></label></div>
       <div>
-        <button name="commit" type="button">Save</button>
+        <button name="commit" type="submit">Save</button>
+        <progress hidden="hidden" max="100">%</progress>
       </div>
     </form>
     <a href="index.html">Back to main menu</a>

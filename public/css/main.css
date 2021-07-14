@@ -12,6 +12,13 @@ div#login-management {
     border: 1px solid orange;
 }
 
+.user-message{
+    color: red;
+    size: A4;
+    margin-bottom: 20px ;
+    font-size: large;
+}
+
 #error {
     color: #ff3300;
     text-align: left;

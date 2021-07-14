@@ -1,9 +1,51 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /Drink/{docID} {
-      allow write: if request.auth.token.email_verified == true;
+    /** VALIDATION FUNCTIONS **/
+    // check how ID is formed
+    function checkDId( dId) {
+      return ( dId != null && int(dId) is int && int(dId) > 0);
+    }
+    // check if exist document with same ID
+    function checkIdAsId( dId) {
+      return !(exists(/databases/$(database)/documents/Drink/$(dId)));
+    }
+
+    function checkTitle( title) {
+    return (title != null && title.size() < 120);
+    }
+
+    function checkDescription( description) {
+        return (description != null && description.size() < 120);
+        }
+
+    /** VALIDATION RULES **/
+    match /{Drink}/{document=**} {
+      /** RULES FOR allow read WITH CONVENIENCE METHOD - LOW GRANULARITY **/
+      /** NO authentication required **/
       allow read: if request.auth != null;
+
+      /** RULES FOR allow write WITH STANDARD METHODS - HIGH GRANULARITY **/
+      /** authentication required **/
+
+      //validate when create new drink
+      allow create: if request.auth.token.email_verified == true
+					   && checkIdAsId( request.resource.data.dId) == true
+                       && checkDId( request.resource.data.dId) == true
+                       && checkTitle(request.resource.data.title) == true
+                       && checkDescription (request.resource.data.description) == true;
+
+      // validate when update drink
+      allow update: if request.auth.token.email_verified == true
+                       && (request.resource.data.diff( resource.data).affectedKeys()
+                        .hasOnly(['title', 'description']))
+                       && request.resource.data.title != null ?
+                           checkTitle( request.resource.data.title) : true
+                       && request.resource.data.description != null ?
+                           checkDescription( request.resource.data.description) : true
+
+      // validate when delete drink
+      allow delete: if request.auth.token.email_verified == true;
     }
   }
 }

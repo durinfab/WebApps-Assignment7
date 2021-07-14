@@ -10,13 +10,10 @@
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="css/normalize.css"/>
   <link rel="stylesheet" href="css/main.css"/>
-  <script src="js/c/initialize.js"></script>
-  <script src="js/m/Drink.js"></script>
-  <script src="js/v/retrieveAndListAllDrinks.js"></script>
-  <script src="js/v/authenticateUser.js"></script>
-  <script>
-    window.addEventListener("load", pl.v.authenticateUser.setupUiByUserStatus);
-    window.addEventListener("load", pl.v.retrieveAndListAllDrinks.setupUserInterface);
+  <script src="js/v/retrieveAndListAllDrinks.mjs" type="module"></script>
+  <script type="module">
+      import { setupUiByUserStatus } from "./js/v/authenticateUser.mjs";
+      setupUiByUserStatus();
   </script>
 </head>
 <body>
@@ -24,7 +21,6 @@
   <div class="wrapper clearfix">
     <div class="title">
       <h1>Retrieve and list all drinks</h1>
-
     </div>
     <nav>
       <ul>
@@ -33,16 +29,16 @@
         <li><a href="indexBoba.html">Boba</a></li>
         <br/><br/><br/><br/>
         <li role="menuitem">
-          <a href="createDrink.html" class="disabled">C</a>
+          <a href="createDrink.html">C</a>
         </li>
         <li role="menuitem">
           <a href="retrieveAndListAllDrinks.html">R</a>
         </li>
         <li role="menuitem">
-          <a href="updateDrink.html" class="disabled">U</a>
+          <a href="updateDrink.html">U</a>
         </li>
         <li role="menuitem">
-          <a href="deleteDrink.html" class="disabled">D</a>
+          <a href="deleteDrink.html">D</a>
         </li>
       </ul>
     </nav>
@@ -54,11 +50,21 @@
 </header>
 <main>
   <div class="wrapper clearfix">
-    <table id="Drinks">
+    <div>
+      <label>Ordered by:
+        <select>
+          <option value="dId">ID</option>
+          <option value="title">Title</option>
+          <option value="description">Description</option>
+        </select>
+      </label>
+    </div>
+    <progress hidden="hidden" max="100">%</progress>
+    <table id="Drink">
       <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Title</th>
         <th>Description</th>
       </tr>
       </thead>

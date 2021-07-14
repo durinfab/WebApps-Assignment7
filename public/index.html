@@ -11,24 +11,17 @@
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="css/normalize.css"/>
   <link rel="stylesheet" href="css/main.css"/>
-
-  <script src="js/c/initialize.js"></script>
-  <script src="js/m/Drink.js"></script>
-  <script src="js/v/authenticateUser.js"></script>
-  <script>
-      window.addEventListener("load", pl.v.authenticateUser.setupUiByUserStatus);
-  </script>
-
-  <script>
-      window.addEventListener("load", function () {
+  <script type="module">
+      import Drink from "./js/m/Drink.mjs";
+      import { setupUiByUserStatus } from "./js/v/authenticateUser.mjs";
+      setupUiByUserStatus();
       const clearButton = document.getElementById("clearData"),
           generateTestDataButtons = document.querySelectorAll("button.generateTestData");
-      // Set event handlers for the buttons "clearData" and "generateTestData"
+      // set event handlers for the buttons "clearData" and "generateTestData"
       clearButton.addEventListener("click", Drink.clearData);
       for (const btn of generateTestDataButtons) {
           btn.addEventListener("click", Drink.generateTestData);
       }
-    });
   </script>
 </head>
 <body>
