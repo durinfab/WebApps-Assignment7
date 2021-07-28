@@ -2,6 +2,7 @@
  * @fileOverview  Defines error export classes (also called "exception" export classes)
  * for property constraint violations
  * @author Gerd Wagner and Juan-Francisco Reyes
+ * @editor Manuel Bohg
  */
 
 class ConstraintViolation {

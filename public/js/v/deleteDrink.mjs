@@ -1,6 +1,7 @@
 /**
  * @fileOverview  Contains various view functions for the use case deleteDrink
- * @authors Gerd Wagner & Juan-Francisco Reyes
+ * @basics Gerd Wagner & Juan-Francisco Reyes
+ * @author Manuel Bohg
 */
 import Drink from "../m/Drink.mjs";
 import { fillSelectWithOptions } from "../../lib/util.mjs";

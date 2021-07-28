@@ -30,10 +30,11 @@ service cloud.firestore {
 
       //validate when create new drink
       allow create: if request.auth.token.email_verified == true
-					   && checkIdAsId( request.resource.data.dId) == true
+											 && checkIdAsId( request.resource.data.dId) == true
                        && checkDId( request.resource.data.dId) == true
                        && checkTitle(request.resource.data.title) == true
-                       && checkDescription (request.resource.data.description) == true;
+                       && checkDescription (request.resource.data.description) == true
+                      ;
 
       // validate when update drink
       allow update: if request.auth.token.email_verified == true
@@ -46,6 +47,48 @@ service cloud.firestore {
 
       // validate when delete drink
       allow delete: if request.auth.token.email_verified == true;
+    }
+
+//-- BobaTea -------------------------------------------------------------------------------------
+
+    function checkTIdAsId( tId) {
+      return !(exists(/databases/$(database)/documents/BobaTea/$(tId)));
+    }
+
+    function checkTId( tId) {
+          return ( tId != null && int(tId) is int && int(tId) > 0);
+        }
+
+    function checkDrink( d) {
+          return ( d != null && d.checkDId);
+        }
+
+    function checkBoba( b) {
+          return ( b != null);
+        }
+
+    function checkRate (r){
+    	//return (( 0 <= int(r) && int(r) <= 5));
+      return ( r != null)
+    }
+    match /{BobaTea}/{document=**} {
+          /** RULES FOR allow read WITH CONVENIENCE METHOD - LOW GRANULARITY **/
+          /** NO authentication required **/
+          allow read: if request.auth != null;
+
+          /** RULES FOR allow write WITH STANDARD METHODS - HIGH GRANULARITY **/
+          /** authentication required **/
+
+          //validate when create new bobatea
+          allow create: if request.auth != null
+    					  					 && checkTIdAsId( request.resource.data.tId) == true
+                           && checkTId( request.resource.data.tId) == true
+                           && checkTitle(request.resource.data.title) == true
+                          //&& checkDrink(request.resource.data.drink) == true
+                           && checkBoba(request.resource.data.drink) == true;
+
+          allow update: if request.auth != null
+          								 && checkRate (request.resource.data.rating) == true;
     }
   }
 }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Minimal Web App with JS and Firebase</title>
+  <meta name="description" content="A minimal effort web app with plain JS + Firebase."/>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="css/normalize.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <script type="module">
+      import BobaTea from "./js/m/BobaTea.mjs";
+      import { setupUiByUserStatus } from "./js/v/authenticateUser.mjs";
+      setupUiByUserStatus();
+      const clearButton = document.getElementById("clearData"),
+          generateTestDataButtons = document.querySelectorAll("button.generateTestData");
+      // set event handlers for the buttons "clearData" and "generateTestData"
+      clearButton.addEventListener("click", BobaTea.clearData);
+      for (const btn of generateTestDataButtons) {
+          btn.addEventListener("click", BobaTea.generateTestData);
+      }
+  </script>
+</head>
+<body>
+<header>
+  <div class="wrapper clearfix">
+    <div class="title">
+      <figure>
+        <img alt="" title="Icon"
+             src="ms-icon.png" /></figure>
+      <h1>BubbleBoba</h1>
+      <h2>Mange Boba Teas</h2>
+      <h3></h3>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="indexBobaTea.html">BTea</a></li>
+        <li><a href="index.html">Drink</a></li>
+        <li><a href="indexBoba.html">Boba</a></li>
+        <br/><br/><br/><br/>
+        <li role="menuitem">
+          <a href="createBobaTea.html">C</a>
+        </li>
+        <li role="menuitem">
+          <a href="retrieveAndListAllBobaTeas.html">R</a>
+        </li>
+        <li role="menuitem">
+          <a href="rateBobaTea.html">*</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div id="login-management">
+    <small hidden="hidden"><a href="authenticateUser.html">Sign in or Sign up</a> for using the disabled operations</small>
+    <small hidden="hidden"><button type="button">Sign out</button></small>
+  </div>
+</header>
+<main>
+  <div class="wrapper clearfix">
+    <p></p>
+    <div class="two-col-menu">
+      <menu class="crud">
+        <ul role="menubar">
+          <li role="menuitem">
+            <a href="createBobaTea.html">Create</a> a new bobatea
+          </li>
+          <li role="menuitem">
+            <a href="retrieveAndListAllBobaTeas.html">Retrieve</a> and list all bobateas
+          </li>
+          <li role="menuitem">
+            <a href="rateBobaTea.html">Rate</a> an existing bobatea
+          </li>
+        </ul>
+      </menu>
+    </div>
+    <p>For testing the app, you may first want to
+      <button type="button" class="generateTestData" disabled="disabled">Generate test data</button> or
+      <button type="button" id="clearData" disabled="disabled">Clear database</button>
+    </p>
+  </div>
+</main>
+<footer>
+  <h5 style="text-align: center">Created by Manuel Bohg</h5>
+  <br/>
+</footer>
+</body>
+</html>

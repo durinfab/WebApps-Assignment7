@@ -1,0 +1,31 @@
+[
+  {
+    "tId": "1",
+    "title": "Lemonwater",
+    "drink": "Water",
+    "boba": "1",
+    "date": "28.7.2021, 18:45:18",
+    "rating": "NaN",
+    "rateCount":"undefined"
+  },
+  {
+    "tId": "2",
+    "title": "Green Cherry Tea",
+    "drink": "Green Tea",
+    "boba": "4",
+    "date": "28.7.2021, 14:34:14",
+    "rating": "NaN",
+    "rateCount":"undefined"
+
+  },
+  {
+    "tId": "3",
+    "title": "Coconutmilk",
+    "drink": "Milk",
+    "boba": "3",
+    "date": "25.7.2021, 11:35:48",
+    "rating": "NaN",
+    "rateCount":"undefined"
+
+  }
+]

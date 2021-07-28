@@ -1,6 +1,7 @@
 /**
  * @fileOverview  View methods for the user authentication
- * @authors Gerd Wagner & Juan-Francisco Reyes
+ * @basics Gerd Wagner & Juan-Francisco Reyes
+ * @author Manuel Bohg
  */
 
 import {auth} from "../c/initialize.mjs";
@@ -11,8 +12,9 @@ import {auth} from "../c/initialize.mjs";
 function setupUiByUserStatus () {
     // set initial values and login management elements
     const page = window.location.pathname,
-      allowedPages = ["/","/index.html",
-        "/authenticateUser.html","/retrieveAndListAllDrinks.html"],
+      allowedPages = ["/","/index.html","/indexBobaTea.html",
+        "/authenticateUser.html","createBobaTea.html",
+        "/retrieveAndListAllDrinks.html","/retrieveAndListAllBobaTeas.html"],
       loginMngEls = document.querySelectorAll("header > div#login-management > small");
     // reset (hide) all login management elements: [0]sign in/up , [1]sign out
     if (page !== "/authenticateUser.html") {
@@ -43,7 +45,8 @@ function setupUiByUserStatus () {
             alert (`Check your email ${user.email} for instructions to verify your account before using this operation`);
             window.location.pathname = "/index.html";
           } else if (page === "/" ||
-              page === "/index.html"
+              page === "/index.html"||
+              page === "/indexBobaTea.html"
               /*
               ||
               page === "/createDrink.html"||

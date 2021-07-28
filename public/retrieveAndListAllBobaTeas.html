@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>Minimal Web App with JS and Firebase: Delete</title>
+  <title>Minimal Web App with JS and Firebase: Retrieve and List</title>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
@@ -10,17 +10,13 @@
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="css/normalize.css"/>
   <link rel="stylesheet" href="css/main.css"/>
-  <script src="js/v/deleteDrink.mjs" type="module"></script >
-  <script type="module">
-      import { setupUiByUserStatus } from "./js/v/authenticateUser.mjs";
-      setupUiByUserStatus();
-  </script>
+  <script src="js/v/retrieveAndListAllBobaTeas.mjs" type="module"></script>
 </head>
 <body>
 <header>
   <div class="wrapper clearfix">
     <div class="title">
-      <h1>Delete a drink</h1>
+      <h1>Retrieve and list all bobateas</h1>
     </div>
     <nav>
       <ul>
@@ -29,40 +25,47 @@
         <li><a href="indexBoba.html">Boba</a></li>
         <br/><br/><br/><br/>
         <li role="menuitem">
-          <a href="createDrink.html">C</a>
+          <a href="createBobaTea.html">C</a>
         </li>
         <li role="menuitem">
-          <a href="retrieveAndListAllDrinks.html">R</a>
+          <a href="retrieveAndListAllBobaTeas.html">R</a>
         </li>
         <li role="menuitem">
-          <a href="updateDrink.html">U</a>
-        </li>
-        <li role="menuitem">
-          <a href="deleteDrink.html">D</a>
+          <a href="rateBobaTea.html">*</a>
         </li>
       </ul>
     </nav>
   </div>
-  <div id="login-management">
-    <small hidden="hidden"><a href="authenticateUser.html">Sign in or Sign up</a> for using the disabled operations</small>
-    <small hidden="hidden"><button onclick=pl.v.authenticateUser.handleSignOut()>Sign out</button></small>
-  </div>
 </header>
 <main>
   <div class="wrapper clearfix">
-    <form id="Drink">
-      <div>
-        <label>Select drink:
-          <select name="selectDrink">
-            <option value=""> ---</option>
-          </select>
-        </label>
-      </div>
-      <div>
-        <button name="commit" type="button">Delete</button>
-      </div>
-    </form>
-    <a href="index.html">Back to main menu</a>
+    <div>
+      <label>Ordered by:
+        <select>
+          <option value="tId">ID</option>
+          <option value="title">Title</option>
+          <option value="date">Date</option>
+          <option value="date">Rating</option>
+          <option value="date">Count of rates</option>
+        </select>
+      </label>
+    </div>
+    <progress hidden="hidden" max="100">%</progress>
+    <table id="BobaTea">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Drink</th>
+        <th>Boba</th>
+        <th>Date</th>
+        <th>Rating</th>
+        <th>Count of rates</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <a href="indexBobaTea.html">Back to main menu</a>
   </div>
 </main>
 <footer>

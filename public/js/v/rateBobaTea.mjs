@@ -3,25 +3,24 @@
  * @basics Gerd Wagner & Juan-Francisco Reyes
  * @author Manuel Bohg
  */
-import Drink from "../m/Drink.mjs";
+import BobaTea from "../m/BobaTea.mjs";
 import { fillSelectWithOptions } from "../../lib/util.mjs";
 
-const objects = await Drink.retrieveAll();
+const objects = await BobaTea.retrieveAll();
 
-const formEl = document.forms["Drink"],
+const formEl = document.forms["BobaTea"],
     saveButton = formEl.commit,
-    selectObjectEl = formEl.selectDrink;
+    selectObjectEl = formEl.selectBobaTea;
 
-let cancelSyncDBwithUI = null;
 
-fillSelectWithOptions(objects, selectObjectEl, "dId", "title");
+fillSelectWithOptions(objects, selectObjectEl, "tId", "title", "rating");
 // when a drink is selected, populate the form with its data
 selectObjectEl.addEventListener("change", async function () {
     const Key = selectObjectEl.value;
     if (Key) {
         // retrieve up-to-date drink
-        const object = await Drink.retrieve( Key);
-        for (let o of ["dId", "title", "description"]) {
+        const object = await BobaTea.retrieve( Key);
+        for (let o of ["tId", "title"]) {
             formEl[o].value = object[o] !== undefined ? object[o] : "";
             // delete custom validation error message which may have been set before
             formEl[o].setCustomValidity("");
@@ -31,20 +30,6 @@ selectObjectEl.addEventListener("change", async function () {
     }
 });
 
-selectObjectEl.addEventListener("change", async function () {
-    cancelSyncDBwithUI = await Drink.syncDBwithUI( selectObjectEl.value);
-});
-
-//Add EListeners
-formEl.title.addEventListener("input", function () {
-    formEl.title.setCustomValidity(
-        Drink.checkTitle( formEl.title.value).message);
-});
-formEl.description.addEventListener("input", function () {
-    formEl.description.setCustomValidity(
-        Drink.checkDescription( formEl.description.value).message);
-});
-
 // set an event handler for the submit/save button
 saveButton.addEventListener("click", handleSaveButtonClickEvent);
 // neutralize the submit event
@@ -52,26 +37,22 @@ formEl.addEventListener("submit", function (e) {
     e.preventDefault();
 });
 
-window.addEventListener("beforeunload", function () {
-    cancelSyncDBwithUI();
-});
-
 async function handleSaveButtonClickEvent () {
-    const formEl = document.forms["Drink"],
-          selectObjectEl = formEl.selectDrink,
+    const formEl = document.forms["BobaTea"],
+          selectObjectEl = formEl.selectBobaTea,
     IdRef = selectObjectEl.value;
     if (!IdRef) return;
     const slots = {
-        dId: formEl.dId.value,
+        tId: formEl.tId.value,
         title: formEl.title.value,
-        description: formEl.description.value
+        rating: formEl.rating.value,
+
     };
     // set error messages in case of constraint violations
-    formEl.title.setCustomValidity( Drink.checkTitle( slots.title).message);
-    formEl.description.setCustomValidity( Drink.checkDescription( slots.description).message);
+    formEl.rating.setCustomValidity( BobaTea.checkRate( slots.rating).message);
 
     if (formEl.checkValidity()) {
-        Drink.update( slots);
+        BobaTea.update( slots);
         // update the selection list option
         selectObjectEl.options[selectObjectEl.selectedIndex].text = slots.title;
         formEl.reset();

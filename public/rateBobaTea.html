@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>Minimal Web App with JS and Firebase: Delete</title>
+  <title>Minimal Web App with JS and Firebase: Update</title>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
@@ -10,17 +10,13 @@
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="css/normalize.css"/>
   <link rel="stylesheet" href="css/main.css"/>
-  <script src="js/v/deleteDrink.mjs" type="module"></script >
-  <script type="module">
-      import { setupUiByUserStatus } from "./js/v/authenticateUser.mjs";
-      setupUiByUserStatus();
-  </script>
+  <script src="js/v/rateBobaTea.mjs" type="module"></script>
 </head>
 <body>
 <header>
   <div class="wrapper clearfix">
     <div class="title">
-      <h1>Delete a drink</h1>
+      <h1>Update a drink</h1>
     </div>
     <nav>
       <ul>
@@ -29,40 +25,49 @@
         <li><a href="indexBoba.html">Boba</a></li>
         <br/><br/><br/><br/>
         <li role="menuitem">
-          <a href="createDrink.html">C</a>
+          <a href="createBobaTea.html">C</a>
         </li>
         <li role="menuitem">
-          <a href="retrieveAndListAllDrinks.html">R</a>
+          <a href="retrieveAndListAllBobaTeas.html">R</a>
         </li>
         <li role="menuitem">
-          <a href="updateDrink.html">U</a>
-        </li>
-        <li role="menuitem">
-          <a href="deleteDrink.html">D</a>
+          <a href="rateBobaTea.html">*</a>
         </li>
       </ul>
     </nav>
   </div>
-  <div id="login-management">
-    <small hidden="hidden"><a href="authenticateUser.html">Sign in or Sign up</a> for using the disabled operations</small>
-    <small hidden="hidden"><button onclick=pl.v.authenticateUser.handleSignOut()>Sign out</button></small>
-  </div>
 </header>
 <main>
+  <div class="user-message" hidden="hidden"><div></div></div>
   <div class="wrapper clearfix">
-    <form id="Drink">
-      <div>
-        <label>Select drink:
-          <select name="selectDrink">
-            <option value=""> ---</option>
+    <form id="BobaTea">
+      <div><label>Select BobaTea:
+        <select name="selectBobaTea">
+          <option value=""> ---</option>
+        </select>
+      </label></div>
+      <div><label>ID:
+        <output name="tId"/>
+      </label></div>
+      <div class="select-one">
+        <label>Rating:
+          <select name="rating">
+            <option value="-">-</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
         </label>
       </div>
       <div>
-        <button name="commit" type="button">Delete</button>
+        <button name="commit" type="button" >Save Changes</button>
       </div>
+      <a href="index.html">Back to main menu</a>
+
     </form>
-    <a href="index.html">Back to main menu</a>
   </div>
 </main>
 <footer>

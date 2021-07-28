@@ -1,6 +1,7 @@
 /**
  * @fileOverview  Contains various view functions for the use case listDrinks
- * @authors Gerd Wagner & Juan-Francisco Reyes
+ * @basics Gerd Wagner & Juan-Francisco Reyes
+ * @author Manuel Bohg
  */
 import Drink from "../m/Drink.mjs";
 import { showProgressBar } from "../../lib/util.mjs";

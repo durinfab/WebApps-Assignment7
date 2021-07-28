@@ -1,5 +1,7 @@
 /**
  * @fileOverview  The model class Drink with attribute definitions and storage management methods
+ * @basics Gerd Wagner & Juan-Francisco Reyes
+ * @author Manuel Bohg
  */
 
 import {db} from "../c/initialize.mjs";
@@ -47,8 +49,8 @@ class Drink {
         validationResult = new MandatoryValueConstraintViolation(
           "A value for the ID must be provided!");
       } else {
-        let bookDocSn = await db.collection("Drink").doc( did).get();
-        if (bookDocSn.exists) {
+        let DocSn = await db.collection("Drink").doc( did).get();
+        if (DocSn.exists) {
           validationResult = new UniquenessConstraintViolation(
              "There is already a drink with this ID!");
         } else {
@@ -248,34 +250,7 @@ Drink.generateTestData = async function() {
         console.error(`${e.constructor.name}: ${e.message}`);
     }
 };
-/*
-Drink.generateTestData = async function () {
-    if (confirm("Do you really want to overwrite all existing drinks?")) {
-    let drinks = [
-        {
-            dId: "1",
-            title: "Water",
-            description: "Fresh Water"
-        },
-        {
-            dId: "2",
-            title: "Green Tea",
-            description: "Healthy and tasty"
-        },
-        {
-            dId: "3",
-            title: "Milk",
-            description: "From the best cows of the region"
-        }
-    ];
 
-    // save all objects
-    await Promise.all( drinks.map(
-        drink => db.collection("Drink").doc( drink.dId).set( drink)
-    ))};
-    console.log(`${Object.keys( drinks).length} drinks saved.`);
-};
-*/
 
 // Clear test data
 Drink.clearData = async function () {
@@ -311,6 +286,6 @@ Drink.syncDBwithUI = async function (did) {
     } catch (e) {
         console.error(`${e.constructor.name} : ${e.message}`);
     }
-}
+};
 
 export default Drink;
