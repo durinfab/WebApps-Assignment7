@@ -239,6 +239,33 @@ Drink.destroy = async function (dId) {
     }
 };
 
+/*
+Drink.destroy = async function (name) {
+    try {
+        const bTeaCollRef = db.collection("BobaTea"),
+            drinksCollRef = db.collection("Drink"),
+            bTeaQrySn = bTeaCollRef,
+            associatedBTeaDocSns = (await bTeaQrySn.get()).docs,
+            publisherDocRef = drinksCollRef.doc( name);
+        // initiate batch write
+        const batch = db.batch();
+        for (const b of associatedBTeaDocSns) {
+            const bookDocRef = bTeaCollRef.doc( b.id);
+            // remove associated publisher from each book record
+            batch.update( bookDocRef, {
+                drink: firebase.firestore.FieldValue.delete()
+            });
+        }
+        // delete publisher record
+        batch.delete( publisherDocRef);
+        batch.commit(); // finish batch write
+        console.log(`Drink "${name}" deleted!`);
+    } catch (e) {
+        console.error(`Error deleting drink: ${e}`);
+    }
+};
+*/
+
 Drink.generateTestData = async function() {
     try {
         console.log('Generating test data...');
